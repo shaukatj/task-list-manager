@@ -4,7 +4,8 @@ const bodyParser = require('body-parser');
 const app = express();
 const errorLog = require('./logger').errorlog;
 const successlog = require('./logger').successlog;
-var taskList = [{title: 'Task 1', dueDate: '01/10/2020'}]
+const moment = require('moment');
+var taskList = [{title: 'Task 1', dueDate: moment('2020-03-01')}]
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -21,7 +22,7 @@ app.use((req, res, next) => {
 app.post('/api/tasks', (req, res,next) => {
   const task = new Task({
   title: req.body.title,
-  dueDate: req.body.dueDate
+  dueDate: moment(req.body.dueDate)
   });
   taskList.push(task);
   res.status('201').json({
@@ -34,11 +35,11 @@ app.post('/api/tasks', (req, res,next) => {
 app.put("/api/tasks/:title", (req, res, next) => {
   const task = new Task({
     title: req.body.title,
-    dueDate: req.body.dueDate
+    dueDate: moment(req.body.dueDate)
   });
   index = taskList.findIndex(x => x.title ===req.params.title);
   if (index){
-    taskList[index] ={title: task.title, dueDate: task.dueDate};
+    taskList[index] ={title: task.title, dueDate: moment(task.dueDate)};
     res.status(200);
     console.log("Task Found: " +task);
     successlog.info("Task Found: " +task);

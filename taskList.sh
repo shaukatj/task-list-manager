@@ -19,14 +19,14 @@ do
         "Add_Task")
             echo "Add Task"
             read -p "Enter New Title : " title
-            read -p "Enter New Date : " date
+            read -p "Enter New Date In The Following Format YYYY-MM-DD: " date
             curl -i -X POST --header "Content-Type: application/json" -d "{\"title\": \"$title\", \"dueDate\": \"$date\"}" http://localhost:3000/api/tasks
             ;;
         "Update_Task")
             echo "Update Task Selected"
             read -p "Enter Current Title : " currentTitle
             read -p "Enter New Title : " newTitle
-            read -p "Enter New Date : " date
+            read -p "Enter New Date In The Following Format YYYY-MM-DD: " date
             curl -i -X PUT --header "Content-Type: application/json" -d "{\"title\": \"$newTitle\", \"dueDate\": \"$date\"}" http://localhost:3000/api/tasks/$currentTitle
 
             ;;

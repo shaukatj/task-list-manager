@@ -1,13 +1,13 @@
 # task-list-manager
-The program is written in JavaScript using Node and Express framework since the OS was linux so node is the most common and robust tool to be used. Please make sure you have the latest node installed on the host machine.
+The program is written in JavaScript using Node and Express framework since the OS iss linux so node works very well on it. Please make sure you have the latest node installed on the host machine.
 
 HOT TO USE: 
 
 1- Clone the git repository to your local machine
 
-2- Execute the following shell script to start the program taskList.sh. This script will first install the node dependencies and then start the program. 
+2- Execute the following shell script to start the program "taskList.sh". This script will first install the node dependencies and then start the program. 
 
-3- You will get a similar menu as below: 
+3- You will see menu as below: 
 
 1) Start_Program     4) Update_Task       7) Stop_The_Program
 2) List_Tasks        5) Delete_Task
